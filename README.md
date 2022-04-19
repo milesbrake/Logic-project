@@ -16,6 +16,7 @@ Ideas on project scope:
   * Color (Red/Black)
   * Odd/Even
   * Inside number guess (0-36)
+* Only supports 1 player but multiple bets
 * Program asks for bets
   * first asks for bet type, and then bet amount
   * continues asking, until user presses enter without entering bet type
@@ -25,12 +26,10 @@ Ideas on project scope:
 * Program calculates winnings
   * loop through bets arrays, and calculate win/loss from that bet
   * accumulate win/loss amounts, and display at end
-* Bonus: ask if double stakes
+* Bonus: ask if double stakes?
 
 ### Questions?
 
-1. do we have to have multiple players? Hopefully not.
-2. is it OK to only support 3 bet typtes (listed above)?
 
 ## Implementation
 
