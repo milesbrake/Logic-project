@@ -1,3 +1,6 @@
+import random
+
+
 def get_bet():
 
     bet_typ = input(
@@ -27,10 +30,71 @@ def get_bet():
 
     bet_amt = input(
         "Enter bet amount for your chosen bet.\n"
-        "Inside bets $100 < $5, Outside bets $1000 < $5: "
+        "Inside bets $100 < $5, Outside bets $1000 < $5: $"
     )
 
     return {"type": bet_typ, "choice": bet_choice, "amount": bet_amt}
+
+
+def get_color(num):
+    red_num = [
+        "1",
+        "3",
+        "5",
+        "7",
+        "9",
+        "12",
+        "14",
+        "16",
+        "18",
+        "19",
+        "21",
+        "23",
+        "25",
+        "27",
+        "30",
+        "32",
+        "34",
+        "36",
+    ]
+
+    if num in red_num:
+        return "red"
+
+    else:
+        return "black"
+
+
+def get_odd_even(num):
+    if (num % 2) == 0:
+        return "even"
+    else:
+        return "odd"
+
+
+def roll():
+    return random.randint(0, 36)
+
+
+def earning_bet(bet, roll):
+    print("MILES earning_bet", bet, roll)
+    if bet["type"] == 1:
+        color = get_color(roll)
+        if bet["choice"] == color:
+            return bet["amount"]
+        else:
+            return -bet["amount"]
+    elif bet["type"] == 2:
+        odd_even = get_odd_even(roll)
+        if bet["choice"] == odd_even:
+            return bet["amount"]
+        else:
+            return -bet["amount"]
+    elif bet["type"] == 3:
+        if bet["choice"] == roll:
+            return bet["amount"]
+        else:
+            return -(bet["amount"])
 
 
 # start of main program
@@ -48,4 +112,14 @@ while 1:
     bets.append(bet)
     i = i + 1
 
-print(bets)
+# print(bets)
+r = roll()
+
+earnings = 0
+
+for b in bets:
+    e = earning_bet(b, r)
+    earnings = earnings + e
+
+
+print(f"Your total earnings are: ${earnings}")
