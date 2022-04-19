@@ -78,23 +78,24 @@ def roll():
 
 def earning_bet(bet, roll):
     print("MILES earning_bet", bet, roll)
+    print("Miles: type of bet amount:", type(bet["amount"]))
     if bet["type"] == 1:
         color = get_color(roll)
         if bet["choice"] == color:
-            return bet["amount"]
+            return int(bet["amount"])
         else:
-            return -bet["amount"]
+            return -(int(bet["amount"]))
     elif bet["type"] == 2:
         odd_even = get_odd_even(roll)
         if bet["choice"] == odd_even:
-            return bet["amount"]
+            return int(bet["amount"])
         else:
-            return -bet["amount"]
+            return -(int(bet["amount"]))
     elif bet["type"] == 3:
         if bet["choice"] == roll:
-            return bet["amount"]
+            return int(bet["amount"])
         else:
-            return -(bet["amount"])
+            return -(int(bet["amount"]))
 
 
 # start of main program
