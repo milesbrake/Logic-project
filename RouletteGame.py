@@ -1,5 +1,7 @@
 import random
 
+print("Hey Zip, lets play some roulette! Enter your name: {name}")
+
 
 def get_bet():
 
@@ -21,7 +23,8 @@ def get_bet():
     elif bet_typ == 2:
         bet_choice = input("Enter odd or even: ")
     elif bet_typ == 3:
-        bet_choice = input("Enter inside number; 0-36: ")
+        bet_choice = int(input("Enter inside number; 0-36: "))
+
     elif bet_typ == 0:
         return "done"
     else:
@@ -30,7 +33,7 @@ def get_bet():
 
     bet_amt = input(
         "Enter bet amount for your chosen bet.\n"
-        "Inside bets $100 < $5, Outside bets $1000 < $5: $"
+        "Betting amount restrictions $1000 > $5: $"
     )
 
     return {"type": bet_typ, "choice": bet_choice, "amount": bet_amt}
@@ -77,8 +80,7 @@ def roll():
 
 
 def earning_bet(bet, roll):
-    print("MILES earning_bet", bet, roll)
-    print("Miles: type of bet amount:", type(bet["amount"]))
+    print("{name} earning_bet", bet, roll)
     if bet["type"] == 1:
         color = get_color(roll)
         if bet["choice"] == color:
