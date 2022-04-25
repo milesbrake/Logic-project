@@ -1,6 +1,6 @@
 import random
 
-print("Hey Zip, lets play some roulette! Enter your name: {name}")
+nm = input("Hey Zip, lets play some roulette! Enter your name: ")
 
 
 def get_bet():
@@ -31,10 +31,7 @@ def get_bet():
         print("Invalid bet type")
         return "invalid"
 
-    bet_amt = input(
-        "Enter bet amount for your chosen bet.\n"
-        "Betting amount restrictions $1000 > $5: $"
-    )
+    bet_amt = input("Enter bet amount for your chosen bet: ")
 
     return {"type": bet_typ, "choice": bet_choice, "amount": bet_amt}
 
@@ -115,6 +112,11 @@ while 1:
     bets.append(bet)
     i = i + 1
 
+bonusopt = input(
+    "BONUS! Would you like to double those stakes? If YES press y, if NO press n: "
+)
+
+
 # print(bets)
 r = roll()
 
@@ -124,5 +126,7 @@ for b in bets:
     e = earning_bet(b, r)
     earnings = earnings + e
 
+if bonusopt == "y":
+    earnings = earnings * 2
 
-print(f"Your total earnings are: ${earnings}")
+print(f"{nm} your total earnings are: ${earnings}")
