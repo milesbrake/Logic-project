@@ -31,7 +31,7 @@ def get_bet():
         print("Invalid bet type")
         return "invalid"
 
-    bet_amt = input("Enter bet amount for your chosen bet: ")
+    bet_amt = input("Enter bet amount for your chosen bet: $")
 
     return {"type": bet_typ, "choice": bet_choice, "amount": bet_amt}
 
@@ -77,7 +77,7 @@ def roll():
 
 
 def earning_bet(bet, roll):
-    print("{name} earning_bet", bet, roll)
+
     if bet["type"] == 1:
         color = get_color(roll)
         if bet["choice"] == color:
@@ -122,11 +122,16 @@ r = roll()
 
 earnings = 0
 
+
 for b in bets:
     e = earning_bet(b, r)
+    print(
+        f"Bet: type: {b['type']} choice: {b['choice']} amount: ${b['amount']}, bet earning = ${e}"
+    )
     earnings = earnings + e
+
 
 if bonusopt == "y":
     earnings = earnings * 2
 
-print(f"{nm} your total earnings are: ${earnings}")
+print(f"Hey {nm}, your total earnings are: ${earnings}")
